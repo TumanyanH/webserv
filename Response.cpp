@@ -1,4 +1,5 @@
 #include <fstream>
+#include <sstream>
 #include "Response.hpp"
 
 Response::Response()
@@ -20,12 +21,23 @@ Response::Response(Request &request)
     // fill_body();
 }
 
-std::ifstream   Response::open_static(const std::string &file)
+std::ifstream   Response::open_static(std::string file)
 {
-    std::ifstream fs(file, std::fstream::out);
+    // to be changed
+    // std::ifstream fs("../www/public" + file, std::fstream::out);
+    // std::string str;
+    // std::ostringstream ss;
 
-    if (!fs.is_open())
-        
+    // if (!fs.is_open())
+    //     fs.close();
+    // else
+    // {
+    //     if(fs) {
+    //         ss << fs.rdbuf(); // reading data
+    //         str = ss.str();
+    //     }
+    // }
+    // std::cout << str << std::endl;
 }
 
 
@@ -41,7 +53,7 @@ int Response::check_static()
     match = uri.find_last_of(".");
     temp = uri.substr(match + 1, uri.size() - match);
     if (temp == "html" || temp == "htm")
-        open_static(uri);
+        // open_static(uri);
     return 0;
 }
 

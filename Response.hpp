@@ -24,7 +24,7 @@ class Response: public HTTP
         char            *get_c_response();
         void            fill_static_content();
         int             check_static();
-        std::ifstream   open_static(const std::string &file);
+        std::ifstream   open_static(std::string file);
 };
 
 #endif
